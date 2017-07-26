@@ -75,9 +75,11 @@ public class UserInfoController {
      *
      * @param session
      */
-    @RequestMapping(value = "signOut.do", method = RequestMethod.POST)
-    public void signOut(HttpSession session) {
+    @RequestMapping(value = "signOut.do", method = RequestMethod.GET)
+    public String signOut(HttpSession session) {
         session.invalidate();
+        System.out.println("跳转");//todo
+        return "forward:/index.jsp";
     }
 
 

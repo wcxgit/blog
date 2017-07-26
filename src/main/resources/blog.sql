@@ -22,7 +22,6 @@ CREATE TABLE content (
   c_id          INT PRIMARY KEY  AUTO_INCREMENT,
   u_id          INT,
   t_id          INT,
-
   c_content     TEXT         NOT NULL
   COMMENT '博客内容',
   c_title       VARCHAR(50)  NOT NULL,

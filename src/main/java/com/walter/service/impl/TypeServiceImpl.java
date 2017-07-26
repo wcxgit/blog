@@ -3,6 +3,7 @@ package com.walter.service.impl;
 import com.walter.common.ServerResponse;
 import com.walter.dao.TypeDao;
 import com.walter.pojo.Type;
+import com.walter.pojo.UserInfo;
 import com.walter.service.TypeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +24,7 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Transactional
-    public int addType(int uId, String tName) {
-        return typeDao.addType(uId, tName);
+    public int addType(Type type) {
+        return typeDao.addType(type);
     }
 }

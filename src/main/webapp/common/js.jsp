@@ -6,19 +6,3 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/common/js/commonNavbar.js"></script>
-<script>
-   /* //注册
-    $("#regist").click(function () {
-        console.log("注册");
-        regist.init();
-    });
-
-    //登录
-    $("#login").click(function () {
-        console.log("登录");
-        login.toLogin();
-    });
-
-    */
-
-</script>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/tag.jsp" %>
 <%@include file="/common/js.jsp" %>
+<script src="${pageContext.request.contextPath}/js/user.js"></script>
 <div class="topBar">
     <div class="container-center">
         <c:if test="${sessionScope.user == null}">
@@ -10,7 +11,7 @@
         <c:if test="${sessionScope.user != null}">
             <a id="detail" href="javascript:;"><i class="fa fa-user-circle-o"> 欢迎您: <font
                     color="black">${user.uName}</font></i></a>
-              <a id="signOut" href="javascript:void(0);"><i class="fa fa-sign-out"> 注销</i></a>
+            <a href="${pageContext.request.contextPath}/user/signOut.do"><i class="fa fa-sign-out"> 注销</i></a>
         </c:if>
     </div>
 </div>
@@ -41,8 +42,8 @@
         regist.init();
     });
 
-    $("#signOut").click(function () {
-
-    });
+    /* $("#signOut").click(function () {
+     login.signOut();
+     });*/
 
 </script>

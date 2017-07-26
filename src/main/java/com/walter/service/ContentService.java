@@ -7,5 +7,5 @@ import com.walter.pojo.UserInfo;
  * Created by walter on 2017/7/25.
  */
 public interface ContentService {
-    ServerResponse<String> addMood(UserInfo userInfo, String cContent);
+    ServerResponse addMood(UserInfo userInfo, String cContent);
 }

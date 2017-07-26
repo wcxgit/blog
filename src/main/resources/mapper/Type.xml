@@ -23,8 +23,8 @@
     <sql id="BaseSql">
         t_id, u_id, t_name, create_time, update_time
     </sql>
-    <insert id="addType" parameterType="map" useGeneratedKeys="true" keyProperty="t_id">
-        INSERT INTO type VALUES (NULL, #{uId}, #{tName}, now(), now());
+    <insert id="addType" parameterType="map" useGeneratedKeys="true" keyProperty="tId">
+        INSERT INTO type VALUES (NULL, #{userInfo.uId}, #{tName}, now(), now());
     </insert>
     <select id="getByUnameAndTypeName" resultMap="BaseMap" parameterType="map">
         SELECT

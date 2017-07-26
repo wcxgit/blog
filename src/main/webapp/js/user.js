@@ -72,7 +72,7 @@ var regist = {
 var login = {
     url: {
         //请求跳转controller,跳转到登陆页面
-        toRegisterJsoController: function () {
+        toLoginController: function () {
             return "/forward/login.do";
         },
 
@@ -94,7 +94,7 @@ var login = {
     },
     //调换到登录页面
     toLogin: function () {
-        location.href = login.url.toRegisterJsoController();
+        location.href = login.url.toLoginController();
     },
 
     //切换验证码
@@ -132,7 +132,7 @@ var login = {
         if (login.validate()) {
             $.post(login.url.login(), $("#form").serialize(), function (result) {
                 if (result && result.status == 0) {
-                    history.back(-1);
+                    location.href = regist.url.toIndex();
                 } else if (result.status == 3) {
                     $("#chkLogin").html("验证码错误!");
                 } else {
@@ -142,15 +142,6 @@ var login = {
         }
     },
 
-    //注销
-    signOut: function () {
-        $.post(login.url.signOut(), {}, function (result) {
-            if (result.status == 0) {
-                //注销成功
-                Location.href = regist.url.toIndex();
-            }
-        });
-    }
 };
 
 //心情相关
@@ -167,7 +158,16 @@ var mood = {
         var content = $("#saytext").val();
         //保存内容到心情
         $.post(mood.url.addMood(), $("#form").serialize(), function (result) {
-
+            if (result.status == 0) {
+                //保存成功
+                //将保存的信息插入到心情列表中
+                $(".mood-list").append('<li class="list-group-item"><span class="label label-info pull-right">2012年3月25日</span></li>');
+            } else {
+                //保存失败
+                //弹出提示框
+                $("#info").modal();
+                $(".modal-body").html(result.msg);
+            }
         });
     }
 };

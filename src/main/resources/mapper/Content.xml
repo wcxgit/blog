@@ -39,7 +39,8 @@
         </association>
     </resultMap>
     <insert id="addContent" parameterType="Content">
-        INSERT INTO content VALUES (NULL, #{uId}, #{tId}, #{cTitle}, #{cContent}, 0, NULL, now(), now(), 0)
+        INSERT INTO content
+        VALUES (NULL, #{userInfo.uId}, #{type.tId}, #{cTitle}, #{cContent}, 0, NULL, now(), now(), 0)
     </insert>
 
 

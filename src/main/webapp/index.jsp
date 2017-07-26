@@ -32,15 +32,16 @@
     <!-- 轮播（Carousel）项目 -->
     <div class="carousel-inner" style="height: 300px;">
         <div class="item active">
-            <img src="imgs/test/05d922a0b0c5518dba4e5d295dccf269.jpg" width="100%" height="100%" alt="First slide">
+            <img src="${pageContext.request.contextPath}/imgs/test/05d922a0b0c5518dba4e5d295dccf269.jpg" width="100%" height="100%" alt="First slide">
+
             <div class="carousel-caption">标题 1</div>
         </div>
         <div class="item">
-            <img src="imgs/test/599fcefbadff1a87cc5db85f97390422.jpg" alt="Second slide">
+            <img src="${pageContext.request.contextPath}/imgs/test/599fcefbadff1a87cc5db85f97390422.jpg" alt="Second slide">
             <div class="carousel-caption">标题 2</div>
         </div>
         <div class="item">
-            <img src="imgs/test/822bf40142d5efa3652a19c077fd9210.jpg" alt="Third slide">
+            <img src="${pageContext.request.contextPath}/imgs/test/822bf40142d5efa3652a19c077fd9210.jpg" alt="Third slide">
             <div class="carousel-caption">标题 3</div>
         </div>
     </div>
@@ -68,7 +69,7 @@
                 <li class="list-group-item">
                     <div class="left-img">
                         <a href="#">
-                            <img class="img-rounded" src="imgs/test/599fcefbadff1a87cc5db85f97390422.jpg" width="200"
+                            <img class="img-rounded" src="${pageContext.request.contextPath}/imgs/test/599fcefbadff1a87cc5db85f97390422.jpg" width="200"
                                  height="150">
                         </a>
                     </div>
@@ -93,7 +94,7 @@
                 <li class="list-group-item">
                     <div class="left-img">
                         <a href="#">
-                            <img class="img-rounded" src="imgs/test/599fcefbadff1a87cc5db85f97390422.jpg" width="200"
+                            <img class="img-rounded" src="${pageContext.request.contextPath}/imgs/test/599fcefbadff1a87cc5db85f97390422.jpg" width="200"
                                  height="150">
                         </a>
                     </div>
@@ -153,13 +154,8 @@
         <div class="pull-right"><h4>生死狙击第二季 全集Shooter迅雷下载</h4></div>
 
     </div>--%>
-
-
 </div>
-
-
 <%@include file="common/footer.jsp" %>
-
 <%@include file="common/js.jsp" %>
 </body>
 </html>

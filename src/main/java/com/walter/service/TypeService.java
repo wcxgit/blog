@@ -9,5 +9,5 @@ public interface TypeService {
 
     Type getByUnameAndTypeName(int uId, String cContent);
 
-    int addType(int uId, String tName);
+    int addType(Type type);
 }

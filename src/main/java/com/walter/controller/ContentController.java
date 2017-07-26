@@ -30,7 +30,7 @@ public class ContentController {
 
     @RequestMapping(value = "addMood.do", method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> addMood(HttpSession session, @RequestParam("cContent") String cContent) {
+    public ServerResponse addMood(HttpSession session, @RequestParam("cContent") String cContent) {
         UserInfo userInfo = (UserInfo) session.getAttribute("user");
         if (userInfo == null) {
             return ServerResponse.createByError(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
