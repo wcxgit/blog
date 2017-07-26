@@ -1,0 +1,51 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.walter.dao.UserInfoDao">
+    <resultMap id="BaseMap" type="UserInfo">
+        <id column="u_id" property="uId"/>
+        <result column="u_name" property="uName"/>
+        <result column="u_sex" property="uSex"/>
+        <result column="u_password" property="uPassword"/>
+        <result column="u_email" property="uEmail"/>
+        <result column="u_role" property="uRole"/>
+        <result column="u_state" property="uState"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <sql id="baseSql">
+        u_id, u_name, u_sex, u_password, u_email, u_role, u_state, create_time, update_time
+    </sql>
+
+    <insert id="register" parameterType="UserInfo">
+        INSERT INTO user_info
+        VALUES (NULL, #{uName}, #{uSex}, #{uPassword}, #{uEmail}, #{uRole}, NULL, now(), now())
+    </insert>
+    <update id="removeUser" parameterType="int">
+        UPDATE user_info
+        SET u_state = 0, update_time = now()
+        WHERE u_id = #{uId}
+    </update>
+    <update id="undo" parameterType="int">
+        UPDATE user_info
+        SET u_state = 1, update_time = now()
+        WHERE u_id = #{uId}
+    </update>
+
+    <select id="login" resultMap="BaseMap" parameterType="map">
+        SELECT
+        <include refid="baseSql"/>
+        FROM user_info
+        WHERE u_name = #{username} and u_password = #{password} and u_role = #{role}
+    </select>
+
+    <select id="getUsers" resultMap="BaseMap">
+        SELECT
+        <include refid="baseSql"/>
+        FROM user_info
+        WHERE u_role = 0
+        ORDER BY create_time
+    </select>
+
+</mapper>

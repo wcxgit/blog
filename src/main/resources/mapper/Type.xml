@@ -1,0 +1,37 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.walter.dao.TypeDao">
+    <resultMap id="BaseMap" type="Type">
+        <id column="t_id" property="tId"/>
+        <result column="t_name" property="tName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <association property="userInfo" javaType="UserInfo">
+            <id column="u_id" property="uId"/>
+            <result column="u_name" property="uName"/>
+            <result column="u_sex" property="uSex"/>
+            <result column="u_password" property="uPassword"/>
+            <result column="u_email" property="uEmail"/>
+            <result column="u_role" property="uRole"/>
+            <result column="u_state" property="uState"/>
+            <result column="create_time" property="createTime"/>
+            <result column="update_time" property="updateTime"/>
+        </association>
+    </resultMap>
+    <sql id="BaseSql">
+        t_id, u_id, t_name, create_time, update_time
+    </sql>
+    <insert id="addType" parameterType="map" useGeneratedKeys="true" keyProperty="t_id">
+        INSERT INTO type VALUES (NULL, #{uId}, #{tName}, now(), now());
+    </insert>
+    <select id="getByUnameAndTypeName" resultMap="BaseMap" parameterType="map">
+        SELECT
+        <include refid="BaseSql"/>
+        FROM type
+        WHERE u_id =#{uId} and t_name=#{tName}
+    </select>
+
+
+</mapper>

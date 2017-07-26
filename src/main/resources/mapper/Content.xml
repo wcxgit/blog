@@ -1,0 +1,46 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.walter.dao.ContentDao">
+    <resultMap id="BaseMap" type="Content">
+        <id column="c_id" property="cId"/>
+        <result column="c_title" property="cTitle"/>
+        <result column="c_content" property="cContent"/>
+        <result column="c_viewcount" property="cViewCount"/>
+        <result column="c_reviewcount" property="cReviewCount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <association property="userInfo" javaType="UserInfo">
+            <id column="u_id" property="uId"/>
+            <result column="u_name" property="uName"/>
+            <result column="u_sex" property="uSex"/>
+            <result column="u_password" property="uPassword"/>
+            <result column="u_email" property="uEmail"/>
+            <result column="u_role" property="uRole"/>
+            <result column="u_state" property="uState"/>
+            <result column="create_time" property="createTime"/>
+            <result column="update_time" property="updateTime"/>
+        </association>
+        <association property="type" javaType="Type">
+            <id column="t_id" property="tId"/>
+            <result column="t_name" property="tId"/>
+            <association property="userInfo" javaType="UserInfo">
+                <id column="u_id" property="uId"/>
+                <result column="u_name" property="uName"/>
+                <result column="u_sex" property="uSex"/>
+                <result column="u_password" property="uPassword"/>
+                <result column="u_email" property="uEmail"/>
+                <result column="u_role" property="uRole"/>
+                <result column="u_state" property="uState"/>
+                <result column="create_time" property="createTime"/>
+                <result column="update_time" property="updateTime"/>
+            </association>
+        </association>
+    </resultMap>
+    <insert id="addContent" parameterType="Content">
+        INSERT INTO content VALUES (NULL, #{uId}, #{tId}, #{cTitle}, #{cContent}, 0, NULL, now(), now(), 0)
+    </insert>
+
+
+</mapper>

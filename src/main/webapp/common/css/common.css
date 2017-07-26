@@ -1,0 +1,31 @@
+body {
+    background-color: #f1f1f1;
+}
+
+/*最顶端*/
+.topBar {
+    height: 30px;
+    line-height: 30px;
+    background-color: #f0e5f1;
+}
+
+.topBar div {
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.topBar a {
+    font-size: 15px;
+}
+
+.topBar a:last-child {
+    margin-left: 10px;
+}
+
+/*设置页面主体居中显示*/
+.container-center {
+    width: 80%;
+    margin: 0 auto;
+}
